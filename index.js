@@ -2,7 +2,7 @@ const express = require("express");
 const parser = require("body-parser");
 const app = express();
 const charactersController = require("./db/controllers/characters");
-require("dotenv").config();
+// require("dotenv").config();
 
 app.use(parser.urlencoded({ extended: true }));
 

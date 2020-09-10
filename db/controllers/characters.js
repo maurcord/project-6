@@ -4,16 +4,32 @@ const router = express.Router();
 const Character = require("../models/Character")
 
 
+
 router.get("/", (req, res) => {
-    // option 1, just send some html back
-    // res.send('<h1>Sup Multiverse?</h1>')
+   Character.find({}).then(allCharacter => res.json(allCharacter));
+  });
+
+
+
+router.get("/:name", (req, res) => {
+    Character.find({ title: req.params.name }).then(characters => res.json(characters));
+  });
   
-    // option 2, send a regular object back
-    // res.json({hello: 'multiverse'})
-  
-    // option 3, use the model to look up data in mongodb
-    // send back the data as json
-    Character.find({}).then(allCharacter => res.json(allCharacter));
+
+
+router.post("/", (req, res) => {
+  const newCharacter = req.body;
+  Character.create(req.body)
+    // send the new record back as json
+    .then(character => res.json(character));
+});
+
+
+
+router.delete("/:name", (req, res) => {
+    Character.findOneAndDelete({ title: req.params.name }).then(character => {
+      res.json(character);
+    });
   });
 
   module.exports = router;

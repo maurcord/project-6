@@ -3,7 +3,7 @@ const mongoose = require("../connection");
 // Setting up what we want our database to look like
 
 const characterSchema = new mongoose.Schema({
-  name: String,
+  Name: String,
   description: String,
   imageUrl: String,
 });

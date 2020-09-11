@@ -8,21 +8,21 @@ const data = require("./characters.json");
 
 
 
-// const newCharacterData = data.map((item) => {
-//   const newCharacters = {
-//     name: item.name,
-//     description: item.description,
-//     imageUrl: item.imageUrl,
-//   };
-//   return newCharacters;
-// });
-// console.log(newCharacterData);
+const newCharacterData = data.map((item) => {
+  const newCharacters = {
+    Name: item.Name,
+    description: item.description,
+    imageUrl: item.imageUrl,
+  };
+  return newCharacters;
+});
+console.log(newCharacterData);
 
 // deletes data and starts fresh
-// Character.deleteMany({}).then(() => {
-//   Character.create(newCharacterData)
-//     .then((characters) => console.log(characters))
-//     .catch((err) => console.log(err));
-// });
+Character.deleteMany({}).then(() => {
+  Character.create(newCharacterData)
+    .then((character) => console.log(character))
+    .catch((err) => console.log(err));
+});
 
 

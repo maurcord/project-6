@@ -8,7 +8,13 @@ const characterSchema = new mongoose.Schema({
   imageUrl: String,
 });
 
+
+
+// Creates a model using the Schmea and attachdes it to our moongoose instance.
+// A model i s used to query and change data in the database
 const Character = mongoose.model("Character", characterSchema);
 
+
+// this exports the instantiated model. kind of like a class
 module.exports = Character;
 

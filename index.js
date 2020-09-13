@@ -14,7 +14,6 @@ app.use(parser.json());
 app.get("/", (req, res) => {
   res.redirect("/characters");
 });
-
 app.use("/characters", charactersController);
 
  app.set("port", process.env.PORT || 3000);

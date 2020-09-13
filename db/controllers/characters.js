@@ -9,8 +9,8 @@ router.get("/", (req, res) => {
 });
 
 router.get("/name/:name", (req, res) => {
-  Character.find({ name: req.params.name }).then((character) =>
-    res.json(character)
+  Character.find({ name: req.params.name }).then((characters) =>
+    res.json(characters)
   );
 });
 

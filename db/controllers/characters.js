@@ -14,12 +14,12 @@ router.get("/name/:name", (req, res) => {
   );
 });
 
-// router.post("/", (req, res) => {
-//   const newCharacter = req.body;
-//   Character.create(req.body)
-//     // send the new record back as json
-//     .then(characters => res.json(characters));
-// });
+router.post("/", (req, res) => {
+  const newCharacter = req.body;
+  Character.create(req.body)
+    // send the new record back as json
+    .then(characters => res.json(characters));
+});
 
 // router.delete("/:name", (req, res) => {
 //     Character.findOneAndDelete({ name: req.params.name }).then(characters => {

@@ -1,7 +1,5 @@
 const express = require("express");
 const router = express.Router();
-
-//importing the Character Model
 const Character = require("../models/Character");
 
 router.get("/", (req, res) => {
@@ -15,16 +13,21 @@ router.get("/name/:name", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  const newCharacter = req.body;
-  Character.create(req.body)
-    // send the new record back as json
-    .then(characters => res.json(characters));
+  Character.create(req.body).then((Character) => res.json(Character));
 });
 
-// router.delete("/:name", (req, res) => {
-//     Character.findOneAndDelete({ name: req.params.name }).then(characters => {
-//       res.json(characters);
-//     });
-//   });
+router.put("/name/:name", (req, res) => {
+  Character.findOneAndUpdate({
+    name: req.params.name,
+  }).then((characters) => {
+    res.json(characters);
+  });
+});
+
+router.delete("/name/:name", (req, res) => {
+  Character.findOneAndDelete({ name: req.params.name }).then((characters) => {
+    res.json(characters);
+  });
+});
 
 module.exports = router;

@@ -16,23 +16,23 @@ app.get("/", (req, res) => {
   res.redirect("/characters");
 });
 
-// app.get("/characters", (req, res) => {
-//   Character.find({}).then((Character) => {
-//     res.json(Character);
-//   });
-// });
+app.get("/characters", (req, res) => {
+  Character.find({}).then((Character) => {
+    res.json(Character);
+  });
+});
 
-// app.post("/characters", (req, res) => {
-//   Character.create(req.body).then((characters) => {
-//     res.json(characters);
-//   });
-// });
+app.post("/characters", (req, res) => {
+  Character.create(req.body).then((characters) => {
+    res.json(characters);
+  });
+});
 
-// app.delete("/characters/:name", function (req, res) {
-//   Character.findOneAndRemove({ name: req.params.id }).then((characters) => {
-//     res.json(characters);
-//   });
-// });
+app.delete("/characters/:name", function (req, res) {
+  Character.findOneAndRemove({ name: req.params.id }).then((characters) => {
+    res.json(characters);
+  });
+});
 
 app.use("/characters/", charactersController);
 

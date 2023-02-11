@@ -1,5 +1,5 @@
 const mongoose = require("../connection");
-
+{ useUnifiedTopology: true }
 // Setting up what we want our database to look like
 
 const characterSchema = new mongoose.Schema({

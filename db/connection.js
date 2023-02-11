@@ -3,17 +3,17 @@ const mongoose = require("mongoose");
 mongoose.Promise = Promise;
 
 
-// const mongoURI = process.env.DB_URL;
+// let mongoURI = process.env.DB_URL;
 
 let mongoURI = "";
 if (process.env.NODE_ENV === "production") {
     mongoURI = process.env.DB_URL;
   } else {
-    mongoURI = "mongodb://localhost/character";
+    mongoURI = "mongodb://127.0.0.1:27017/character";
   }
 
   mongoose
-  .connect(mongoURI, { useNewUrlParser: true })
+  .connect(mongoURI, { useUnifiedTopology: true },{ useNewUrlParser: true })
   .then(instance =>
     console.log(`Connected to db: ${instance.connections[0].name}`)
   )
